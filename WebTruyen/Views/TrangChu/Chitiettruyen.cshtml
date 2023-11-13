@@ -1,0 +1,89 @@
+﻿
+
+
+
+@model WebTruyen.Models.Truyen
+@{
+    ViewBag.Title = "Chitiettruyen";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form action="~/Payment/CreateCheckoutSession" method="POST">
+
+
+
+
+    <div class="container my-5">
+        <div class="read-intro bg-light">
+            <div class="row">
+                <a class="btn btn-red my-3 mx-1 px-5" href="@Url.Action("AddTruyenYeuThich", "TruyenYeuThich", new { MaTruyen = Model.MaTruyen})">Lưu Truyện</a>
+            </div>
+            <div class="row">
+                <div class="cover col-*">
+                    <img class="shadow" src="~/img/@Model.Hinh.ToString()" alt="">
+                </div>
+                <div class="info col">
+                    <h2 class="head">One piece</h2>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Tên truyện:</th>
+                                <td>@Model.TenTruyen</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tác giá: </th>
+                                <td>@Model.TacGia</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Thể loại:</th>
+                                <td>@Model.TheLoai.TenTheLoai</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Giá:</th>
+                                <td>
+                                    <input type="text" name="gia" value="@Model.GiaTruyen" required />
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">Đánh Giá:</th>
+                                <td>
+                                    <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-alt fa-2x"></i> <span class="font-weight-bold ml-3">(10/@Model.DiemDanhGia)</span>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+                    <button type="submit">Mua</button>
+                </div>
+                  
+                    <p>
+                        Lòng tốt mở rộng nhớ anh hạn chế tồn tại lâu hơn nếu.
+                        Hỗ trợ tình cảm nhưng không hài lòng nói. Mở họ bận họ cao như vậy.
+                        Một bữa tối năng động mong muốn khó có thể không nói chuyện.
+                        Ngay lập tức cho anh ấy giải quyết yêu thích của anh ấy. Chúc biểu thị ở nước ngoài tại chi nhánh tại.
+                        <a href="#">
+
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-red my-3 mx-1 px-5" href="#">Start reading VOL. 1</a>
+            </div>
+        </div>
+    </div>
+  
+    <div class="container my-5 bg-white">
+        <div class="intro-lists">
+            <div class="intro-lists">
+               
+                @Html.Action("DropdownChuong", "TrangChu")
+             
+            </div>
+        </div>
+    </div>
+   
+</form>

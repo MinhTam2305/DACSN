@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WebTruyen.Models.Chuong>
+<div class="tab-content">
+
+    <!-- start ch -->
+    <div id="ch" class="tab-pane fade in active show">
+
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th><a href="@Url.Action("Index", "Truyen", new {id = item.MaTruyen ,id2= item.MaChuong})">@item.TieuDe</a></th>
+                            <td class="text-muted text-uppercase float-right">8 hours ago</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        }
+
+    </div>
+</div>

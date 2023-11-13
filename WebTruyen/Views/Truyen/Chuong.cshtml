@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<WebTruyen.Models.Chuong>
+<td>
+    <div class="black-select" style="width:100px;margin-top:10px">
+        <select id="chapterSelect" class="custom-select" style="width:80px">
+            @foreach (var chapter in Model)
+            {
+                <option value="@Url.Action("Index", "Truyen", new { id = chapter.MaTruyen, id2 = chapter.MaChuong })">
+                    @chapter.TieuDe
+                </option>
+            }
+        </select>
+
+
+
+    </div>
+
+    <script>
+        document.getElementById("chapterSelect").onchange = function () {
+            var selectedOption = this.value;
+            if (selectedOption) {
+                window.location = selectedOption; // Chuyển hướng đến URL được chọn
+            }
+        };
+    </script>

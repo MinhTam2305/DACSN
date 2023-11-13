@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebTruyen.Models.TruyenYeuThich>
+
+
+@{
+    ViewBag.Title = "FavoriteBooks";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>FavoriteBooks</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.MaTruyen)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTruyen)
+            </td>
+            <td>
+
+           @*       @Html.ActionLink("Details", "Details", new { id = item.MaTruyenYeuThich }) |
+                 @Html.ActionLink("RemoveFromFavorites", "TruyenYeuThich", new { id=item.MaTruyenYeuThich })*@
+                <a href="~/TruyenYeuThich/RemoveFromFavorites?bookid=@item.MaTruyenYeuThich">|Delete|</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
